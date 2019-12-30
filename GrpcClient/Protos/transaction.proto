@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package transaction;
+
+service Transaction {
+  rpc SaveTransaction (TransactionModel) returns (TransactionLookupModel);
+}
+
+message TransactionModel {
+  int32 userId = 1;
+  string customerName = 2;
+  string transactionType = 3;
+  int32 transactionAmount = 4;
+  string terminatingBank = 5;
+  string issuingBank = 6;
+}
+
+message TransactionLookupModel {
+  string transactionId = 1;
+}
